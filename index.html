@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111814">
+    <meta name="description" content="Ядро интерактивной карты GTA V: игровая система координат, масштаб и проверочная сетка.">
+    <title>GTA V · Map Lab</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23111814'/%3E%3Cpath d='m7 7 9 19L25 7h-5l-4 10-4-10Z' fill='%23c4f578'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./assets/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./assets/vendor/leaflet/leaflet.js" defer></script>
+    <script type="module" src="./js/app.js"></script>
+  </head>
+  <body data-loading>
+    <a class="skip-link" href="#map">Перейти к карте</a>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="GTA V Map Lab, главная">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span><strong>GTA V <span class="brand-divider">/</span> MAP LAB</strong><small>LOS SANTOS &amp; BLAINE COUNTY</small></span>
+      </a>
+      <div class="stage"><span class="status-dot" aria-hidden="true"></span>Этап 03 <span class="stage-divider">/</span> Ядро карты</div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar" aria-labelledby="panel-title">
+        <div class="sidebar-heading"><span class="eyebrow">КАРТОГРАФИЧЕСКАЯ ОСНОВА</span><span class="index-number">01</span></div>
+        <h1 id="panel-title">Мир в игровых<br>координатах.</h1>
+        <p class="intro">Единая плоскость для карты, масштаба и будущих меток.</p>
+
+        <div class="data-section">
+          <div class="section-label">ОБЛАСТЬ КАРТЫ <span class="tag" id="bounds-status">ПО ИСТОЧНИКУ</span></div>
+          <dl class="bounds">
+            <div><dt>X <span>запад → восток</span></dt><dd id="bounds-x">−8000 … 8000</dd></div>
+            <div><dt>Y <span>юг → север</span></dt><dd id="bounds-y">−8000 … 8000</dd></div>
+          </dl>
+        </div>
+
+        <div class="data-section grid-setting">
+          <label for="grid-toggle"><span>Координатная сетка</span><small>Ориентиры в игровом мире</small></label>
+          <input id="grid-toggle" type="checkbox" role="switch">
+        </div>
+
+        <div class="calibration-note">
+          <span class="note-symbol" aria-hidden="true">i</span>
+          <div><strong id="source-status">Слой Atlas</strong><p id="source-note">Atlas подключён. Привязка из открытого проекта; точность по игровым точкам ещё не проверена.</p></div>
+        </div>
+
+        <div class="sidebar-bottom"><span class="direction-icon" aria-hidden="true">↑</span><span>Y — север<br><span class="muted">X — восток</span></span><span class="flat-label">ПЛОСКАЯ<br>ПРОЕКЦИЯ</span></div>
+      </aside>
+
+      <section class="map-area" aria-label="Интерактивная карта">
+        <div id="map" tabindex="0" aria-label="Карта игровых координат. Перетаскивайте для перемещения, используйте колесо или кнопки для изменения масштаба." aria-describedby="map-help"></div>
+        <div class="map-badge"><span class="status-dot" aria-hidden="true"></span><span id="map-mode">ATLAS</span></div>
+        <div class="map-controls" role="group" aria-label="Управление картой">
+          <button id="zoom-in" type="button" title="Приблизить" aria-label="Приблизить" disabled><span aria-hidden="true">+</span></button>
+          <button id="zoom-out" type="button" title="Отдалить" aria-label="Отдалить" disabled><span aria-hidden="true">−</span></button>
+          <span class="control-separator" aria-hidden="true"></span>
+          <button id="fit-world" type="button" title="Показать всю карту" aria-label="Показать всю карту" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
+        </div>
+        <div class="map-message" id="map-message" role="status">Подготовка карты…</div>
+        <div class="map-caption" id="map-help"><span class="mouse-icon" aria-hidden="true"></span>Перетаскивайте карту <span class="caption-dot">·</span> Колесо для масштаба</div>
+        <div class="north-indicator" aria-hidden="true"><span>N</span><svg viewBox="0 0 24 34"><path d="m12 2 9 28-9-6-9 6Z"/></svg></div>
+      </section>
+    </main>
+
+    <footer class="telemetry" aria-label="Состояние карты">
+      <div class="coordinate-readout"><span class="telemetry-label">КУРСОР</span><span>X <output id="coordinate-x">—</output></span><span>Y <output id="coordinate-y">—</output></span></div>
+      <div class="view-readout"><span><span class="telemetry-label">ЗУМ</span> <output id="zoom-value">—</output></span><span class="telemetry-scale"><output id="scale-value">—</output> ед./px</span><span class="connection-status" id="connection-status">ЗАГРУЗКА</span></div>
+    </footer>
+    <noscript><div class="noscript-message">Для интерактивной карты включите JavaScript.</div></noscript>
+  </body>
+</html>

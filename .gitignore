@@ -1,0 +1,22 @@
+# Dependencies and local tools
+node_modules/
+dist/
+.cache/
+coverage/
+*.log
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Large source rasters and temporary tile-generation files
+assets/sources/
+work/
+tmp/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
