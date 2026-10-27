@@ -1,0 +1,523 @@
+[
+  {
+    "id": "mission-row-police",
+    "name": "Полицейский участок Mission Row",
+    "aliases": [
+      "mission row",
+      "police",
+      "lspd",
+      "полиция",
+      "миссион роу"
+    ],
+    "x": 428.23,
+    "y": -984.28,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-policejob/blob/1dd32289a99f85b144d69cf7154139909027789e/config.lua#L61"
+  },
+  {
+    "id": "paleto-sheriff",
+    "name": "Шериф Paleto Bay",
+    "aliases": [
+      "paleto bay sheriff",
+      "sheriff",
+      "police paleto",
+      "палето",
+      "шериф",
+      "полиция"
+    ],
+    "x": -451.55,
+    "y": 6014.25,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-policejob/blob/1dd32289a99f85b144d69cf7154139909027789e/config.lua#L63"
+  },
+  {
+    "id": "bolingbroke-prison",
+    "name": "Тюрьма Bolingbroke",
+    "aliases": [
+      "bolingbroke penitentiary",
+      "prison",
+      "болингброук",
+      "тюрьма"
+    ],
+    "x": 1845.903,
+    "y": 2585.873,
+    "category": "landmark",
+    "source": "https://github.com/qbcore-fivem/qb-policejob/blob/1dd32289a99f85b144d69cf7154139909027789e/config.lua#L62"
+  },
+  {
+    "id": "pillbox-hospital",
+    "name": "Pillbox Hill Medical Center",
+    "aliases": [
+      "pillbox hospital",
+      "hospital",
+      "больница",
+      "пиллбокс",
+      "медицина"
+    ],
+    "x": 308.36,
+    "y": -595.25,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-ambulancejob/blob/19bb190d7c41e6b79d836a45d7498bd3762d0bd4/config.lua#L88"
+  },
+  {
+    "id": "paleto-hospital",
+    "name": "Больница Paleto Bay",
+    "aliases": [
+      "paleto hospital",
+      "hospital",
+      "палето",
+      "больница",
+      "медицина"
+    ],
+    "x": -254.54,
+    "y": 6331.78,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-ambulancejob/blob/19bb190d7c41e6b79d836a45d7498bd3762d0bd4/config.lua#L102"
+  },
+  {
+    "id": "diamond-casino-parking",
+    "name": "Diamond Casino — парковка",
+    "aliases": [
+      "diamond casino",
+      "casino parking",
+      "казино",
+      "даймонд",
+      "vinewood"
+    ],
+    "x": 883.96,
+    "y": -4.71,
+    "category": "landmark",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L34"
+  },
+  {
+    "id": "lsia-hangar",
+    "name": "LSIA — ангар аэропорта",
+    "aliases": [
+      "los santos international airport",
+      "lsia",
+      "airport",
+      "аэропорт",
+      "лсиа",
+      "лос сантос"
+    ],
+    "x": -979.06,
+    "y": -2995.48,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L321"
+  },
+  {
+    "id": "sandy-shores-airfield",
+    "name": "Sandy Shores Airfield — ангар",
+    "aliases": [
+      "sandy shores airport",
+      "sandy airfield",
+      "airport",
+      "сэнди шорс",
+      "аэродром",
+      "аэропорт"
+    ],
+    "x": 1737.89,
+    "y": 3288.13,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L348"
+  },
+  {
+    "id": "fort-zancudo-hangar",
+    "name": "Fort Zancudo — ангар",
+    "aliases": [
+      "fort zancudo",
+      "military base",
+      "airport",
+      "форт занкудо",
+      "военная база",
+      "аэродром"
+    ],
+    "x": -1828.25,
+    "y": 2975.44,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L361"
+  },
+  {
+    "id": "higgins-helitours",
+    "name": "Higgins Helitours",
+    "aliases": [
+      "helipad",
+      "helicopter",
+      "хиггинс",
+      "вертолёт",
+      "вертолет",
+      "вертолётная площадка"
+    ],
+    "x": -722.15,
+    "y": -1472.79,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L334"
+  },
+  {
+    "id": "lsymc-boathouse",
+    "name": "LSYMC — лодочная станция",
+    "aliases": [
+      "los santos marina",
+      "boathouse",
+      "marina",
+      "лодки",
+      "марина",
+      "яхты"
+    ],
+    "x": -785.95,
+    "y": -1497.84,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L387"
+  },
+  {
+    "id": "paleto-boathouse",
+    "name": "Paleto Bay — лодочная станция",
+    "aliases": [
+      "paleto boathouse",
+      "paleto bay",
+      "boats",
+      "палето",
+      "лодки"
+    ],
+    "x": -278.21,
+    "y": 6638.13,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L400"
+  },
+  {
+    "id": "millars-boathouse",
+    "name": "Millars — лодочная станция",
+    "aliases": [
+      "millars boathouse",
+      "alamo sea",
+      "boats",
+      "милларс",
+      "аламо",
+      "лодки"
+    ],
+    "x": 1298.56,
+    "y": 4212.42,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L413"
+  },
+  {
+    "id": "pillbox-garage",
+    "name": "Pillbox Garage — парковка",
+    "aliases": [
+      "pillbox garage parking",
+      "garage",
+      "parking",
+      "пиллбокс",
+      "гараж",
+      "парковка"
+    ],
+    "x": 213.2,
+    "y": -796.05,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L203"
+  },
+  {
+    "id": "grapeseed-parking",
+    "name": "Grapeseed — парковка",
+    "aliases": [
+      "grapeseed parking",
+      "garage",
+      "грейпсид",
+      "парковка"
+    ],
+    "x": 2552.68,
+    "y": 4671.8,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L220"
+  },
+  {
+    "id": "bell-farms-parking",
+    "name": "Bell Farms — парковка",
+    "aliases": [
+      "bell farms parking",
+      "paleto",
+      "белл фармс",
+      "палето",
+      "парковка"
+    ],
+    "x": 76.88,
+    "y": 6397.3,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L177"
+  },
+  {
+    "id": "motor-hotel-parking",
+    "name": "The Motor Hotel — парковка",
+    "aliases": [
+      "the motor hotel",
+      "route 68",
+      "harmony",
+      "мотель",
+      "хармони",
+      "парковка"
+    ],
+    "x": 1137.77,
+    "y": 2663.54,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L138"
+  },
+  {
+    "id": "sandy-shores-parking",
+    "name": "Sandy Shores — Shore Parking",
+    "aliases": [
+      "shore parking",
+      "sandy shores",
+      "сэнди шорс",
+      "парковка"
+    ],
+    "x": 1737.03,
+    "y": 3718.88,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L164"
+  },
+  {
+    "id": "vespucci-beach-parking",
+    "name": "Vespucci Beach — парковка",
+    "aliases": [
+      "beach parking",
+      "vespucci beach",
+      "веспуччи",
+      "пляж",
+      "парковка"
+    ],
+    "x": -1185.32,
+    "y": -1500.64,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L125"
+  },
+  {
+    "id": "lsia-parking",
+    "name": "LSIA — парковка",
+    "aliases": [
+      "airport parking",
+      "lsia",
+      "airport",
+      "аэропорт",
+      "лсиа",
+      "парковка"
+    ],
+    "x": -773.12,
+    "y": -2033.04,
+    "category": "transport",
+    "source": "https://github.com/qbcore-fivem/qb-garages/blob/29a277965fc3d01904bb7ade91324f3d63b51c04/config.lua#L112"
+  },
+  {
+    "id": "go-postal",
+    "name": "GO Postal — депо",
+    "aliases": [
+      "go postal",
+      "postal depot",
+      "почта",
+      "доставка"
+    ],
+    "x": 69.0862,
+    "y": 127.6753,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-shops/blob/4c4082efd9d582355e6b564e95dd3bb1d10e0961/config.lua#L13"
+  },
+  {
+    "id": "sandy-247",
+    "name": "24/7 — Sandy Shores",
+    "aliases": [
+      "24/7 supermarket",
+      "alhambra drive",
+      "sandy shores",
+      "сэнди шорс",
+      "магазин",
+      "супермаркет"
+    ],
+    "x": 1959.82,
+    "y": 3740.48,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-shops/blob/4c4082efd9d582355e6b564e95dd3bb1d10e0961/config.lua#L237"
+  },
+  {
+    "id": "harmony-247",
+    "name": "24/7 — Route 68",
+    "aliases": [
+      "24/7 supermarket",
+      "route 68",
+      "harmony",
+      "хармони",
+      "трасса 68",
+      "магазин"
+    ],
+    "x": 549.13,
+    "y": 2670.85,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-shops/blob/4c4082efd9d582355e6b564e95dd3bb1d10e0961/config.lua#L253"
+  },
+  {
+    "id": "grapeseed-ltd",
+    "name": "LTD Gasoline — Grapeseed",
+    "aliases": [
+      "ltd gasoline",
+      "grapeseed",
+      "грейпсид",
+      "заправка",
+      "магазин"
+    ],
+    "x": 1697.87,
+    "y": 4922.96,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-shops/blob/4c4082efd9d582355e6b564e95dd3bb1d10e0961/config.lua#L382"
+  },
+  {
+    "id": "sandy-ammunation",
+    "name": "Ammu-Nation — Sandy Shores",
+    "aliases": [
+      "ammunation",
+      "ammu nation",
+      "sandy shores",
+      "сэнди шорс",
+      "амму нейшн",
+      "оружейный магазин"
+    ],
+    "x": 1692.67,
+    "y": 3761.38,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-shops/blob/4c4082efd9d582355e6b564e95dd3bb1d10e0961/config.lua#L562"
+  },
+  {
+    "id": "paleto-ammunation",
+    "name": "Ammu-Nation — Paleto Bay",
+    "aliases": [
+      "ammunation",
+      "ammu nation",
+      "paleto bay",
+      "палето",
+      "амму нейшн",
+      "оружейный магазин"
+    ],
+    "x": -331.23,
+    "y": 6085.37,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-shops/blob/4c4082efd9d582355e6b564e95dd3bb1d10e0961/config.lua#L578"
+  },
+  {
+    "id": "smoke-on-the-water",
+    "name": "Smoke on the Water",
+    "aliases": [
+      "smoke on the water",
+      "vespucci",
+      "смоук он зе вотер",
+      "веспуччи",
+      "магазин"
+    ],
+    "x": -1168.26,
+    "y": -1573.2,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-shops/blob/4c4082efd9d582355e6b564e95dd3bb1d10e0961/config.lua#L707"
+  },
+  {
+    "id": "route68-robs-liquor",
+    "name": "Rob’s Liquor — Route 68",
+    "aliases": [
+      "robs liquor",
+      "rob's liquor",
+      "route 68",
+      "harmony",
+      "хармони",
+      "алкомаркет",
+      "магазин"
+    ],
+    "x": 1165.17,
+    "y": 2710.88,
+    "category": "service",
+    "source": "https://github.com/qbcore-fivem/qb-shops/blob/4c4082efd9d582355e6b564e95dd3bb1d10e0961/config.lua#L447"
+  },
+  {
+    "id": "raton-canyon",
+    "name": "Каньон Ратон — велоточка",
+    "aliases": [
+      "raton canyon trails",
+      "raton canyon",
+      "ратон",
+      "каньон",
+      "тропы",
+      "природа"
+    ],
+    "x": -1491.81,
+    "y": 4979.68,
+    "category": "nature",
+    "source": "https://github.com/Giana/g-bikerentals/blob/35104e5906c85fe8dd4f8efabb9a6da623c542d3/config.lua#L103"
+  },
+  {
+    "id": "mount-chiliad",
+    "name": "Гора Чилиад — велоточка",
+    "aliases": [
+      "mount chiliad",
+      "chiliad",
+      "чилиад",
+      "гора",
+      "природа"
+    ],
+    "x": 509.83,
+    "y": 5530.33,
+    "category": "nature",
+    "source": "https://github.com/Giana/g-bikerentals/blob/35104e5906c85fe8dd4f8efabb9a6da623c542d3/config.lua#L109"
+  },
+  {
+    "id": "galileo-observatory",
+    "name": "Обсерватория Галилео — велоточка",
+    "aliases": [
+      "galileo observatory",
+      "galileo",
+      "галилео",
+      "обсерватория"
+    ],
+    "x": -421.05,
+    "y": 1221.16,
+    "category": "landmark",
+    "source": "https://github.com/Giana/g-bikerentals/blob/35104e5906c85fe8dd4f8efabb9a6da623c542d3/config.lua#L139"
+  },
+  {
+    "id": "kortz-center",
+    "name": "Kortz Center — велоточка",
+    "aliases": [
+      "kortz center",
+      "kortz",
+      "центр кортц",
+      "кортц",
+      "музей"
+    ],
+    "x": -2318.9,
+    "y": 452,
+    "category": "landmark",
+    "source": "https://github.com/Giana/g-bikerentals/blob/35104e5906c85fe8dd4f8efabb9a6da623c542d3/config.lua#L127"
+  },
+  {
+    "id": "vinewood-bowl",
+    "name": "Vinewood Bowl — велоточка",
+    "aliases": [
+      "vinewood bowl",
+      "vinewood",
+      "вайнвуд",
+      "амфитеатр",
+      "концерт"
+    ],
+    "x": 733.64,
+    "y": 659.77,
+    "category": "landmark",
+    "source": "https://github.com/Giana/g-bikerentals/blob/35104e5906c85fe8dd4f8efabb9a6da623c542d3/config.lua#L73"
+  },
+  {
+    "id": "maze-bank-arena",
+    "name": "Maze Bank Arena — велоточка",
+    "aliases": [
+      "maze bank arena",
+      "arena",
+      "арена",
+      "мейз банк"
+    ],
+    "x": -226.28,
+    "y": -1877.15,
+    "category": "landmark",
+    "source": "https://github.com/Giana/g-bikerentals/blob/35104e5906c85fe8dd4f8efabb9a6da623c542d3/config.lua#L61"
+  }
+]

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#111814">
-    <meta name="description" content="Ядро интерактивной карты GTA V: игровая система координат, масштаб и проверочная сетка.">
+    <meta name="description" content="Интерактивная карта GTA V: Atlas, Satellite и Roadmap, поиск мест и личные метки в игровых координатах.">
     <title>GTA V · Map Lab</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23111814'/%3E%3Cpath d='m7 7 9 19L25 7h-5l-4 10-4-10Z' fill='%23c4f578'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="./assets/vendor/leaflet/leaflet.css">
@@ -19,34 +19,55 @@
         <span class="brand-mark" aria-hidden="true">V</span>
         <span><strong>GTA V <span class="brand-divider">/</span> MAP LAB</strong><small>LOS SANTOS &amp; BLAINE COUNTY</small></span>
       </a>
-      <div class="stage"><span class="status-dot" aria-hidden="true"></span>Этап 03 <span class="stage-divider">/</span> Ядро карты</div>
+      <div class="stage"><span class="status-dot" aria-hidden="true"></span>Этап 04 <span class="stage-divider">/</span> Интерактивная карта</div>
     </header>
 
     <main class="workspace">
       <aside class="sidebar" aria-labelledby="panel-title">
-        <div class="sidebar-heading"><span class="eyebrow">КАРТОГРАФИЧЕСКАЯ ОСНОВА</span><span class="index-number">01</span></div>
-        <h1 id="panel-title">Мир в игровых<br>координатах.</h1>
-        <p class="intro">Единая плоскость для карты, масштаба и будущих меток.</p>
+        <div class="sidebar-heading"><span class="eyebrow">ИССЛЕДУЙТЕ САН-АНДРЕАС</span><span class="index-number">04</span></div>
+        <h1 id="panel-title">Весь штат.<br>Ваши ориентиры.</h1>
+        <p class="intro">Находите места. Сохраняйте свои точки.</p>
 
-        <div class="data-section">
-          <div class="section-label">ОБЛАСТЬ КАРТЫ <span class="tag" id="bounds-status">ПО ИСТОЧНИКУ</span></div>
-          <dl class="bounds">
-            <div><dt>X <span>запад → восток</span></dt><dd id="bounds-x">−8000 … 8000</dd></div>
-            <div><dt>Y <span>юг → север</span></dt><dd id="bounds-y">−8000 … 8000</dd></div>
-          </dl>
+        <div class="search-box">
+          <form id="search-form" role="search" autocomplete="off">
+            <label class="sr-only" for="place-search">Поиск места или координат X, Y</label>
+            <input id="place-search" type="search" role="combobox" placeholder="Место или X, Y" aria-autocomplete="list" aria-controls="search-results" aria-expanded="false" aria-describedby="search-help" spellcheck="false">
+            <button type="submit" aria-label="Найти на карте" title="Найти на карте"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
+          </form>
+          <ul id="search-results" role="listbox" aria-label="Результаты поиска" hidden></ul>
+          <p id="search-help" class="search-help">Например: аэропорт или 100, −200</p>
+          <p id="search-feedback" class="search-feedback" role="status" aria-live="polite" hidden></p>
         </div>
 
-        <div class="data-section grid-setting">
-          <label for="grid-toggle"><span>Координатная сетка</span><small>Ориентиры в игровом мире</small></label>
-          <input id="grid-toggle" type="checkbox" role="switch">
+        <div class="data-section style-section">
+          <div class="section-label">СТИЛЬ КАРТЫ</div>
+          <div class="layer-switcher" id="layer-switcher" role="group" aria-label="Стиль карты">
+            <button type="button" data-layer="atlas" aria-pressed="true"><span class="layer-swatch layer-swatch--atlas" aria-hidden="true"></span>Atlas</button>
+            <button type="button" data-layer="satellite" aria-pressed="false"><span class="layer-swatch layer-swatch--satellite" aria-hidden="true"></span>Satellite</button>
+            <button type="button" data-layer="roadmap" aria-pressed="false"><span class="layer-swatch layer-swatch--roadmap" aria-hidden="true"></span>Roadmap</button>
+          </div>
         </div>
+
+        <div class="data-section overlay-section">
+          <div class="section-label">СЛОИ И МЕТКИ</div>
+          <div class="grid-setting"><label for="places-toggle">Известные места <span id="places-count" class="inline-count">0</span></label><input id="places-toggle" type="checkbox" checked role="switch"></div>
+          <div class="grid-setting"><label for="users-toggle">Мои метки <span id="markers-count" class="inline-count">0</span></label><input id="users-toggle" type="checkbox" checked role="switch"></div>
+          <div class="grid-setting"><label for="grid-toggle">Координатная сетка</label><input id="grid-toggle" type="checkbox" role="switch"></div>
+        </div>
+
+        <section class="data-section markers-section" aria-labelledby="markers-heading">
+          <div class="section-label"><span id="markers-heading">МОИ ОРИЕНТИРЫ</span><span class="tag">НА ЭТОМ УСТРОЙСТВЕ</span></div>
+          <button class="add-marker-button" id="add-marker" type="button"><span aria-hidden="true">+</span> Добавить метку</button>
+          <p class="empty-markers" id="empty-markers">Ваши точки будут здесь. Выберите место на карте или введите координаты.</p>
+          <ul id="marker-list" class="marker-list" aria-label="Сохранённые метки"></ul>
+        </section>
 
         <div class="calibration-note">
           <span class="note-symbol" aria-hidden="true">i</span>
-          <div><strong id="source-status">Слой Atlas</strong><p id="source-note">Atlas подключён. Привязка из открытого проекта; точность по игровым точкам ещё не проверена.</p></div>
+          <div><strong id="source-status">Слой Atlas</strong><p id="source-note">Привязка из открытого проекта. Точность по игровым точкам ещё не проверена.</p></div>
         </div>
-
-        <div class="sidebar-bottom"><span class="direction-icon" aria-hidden="true">↑</span><span>Y — север<br><span class="muted">X — восток</span></span><span class="flat-label">ПЛОСКАЯ<br>ПРОЕКЦИЯ</span></div>
+        <details class="bounds-details"><summary>Границы и координаты <span class="tag" id="bounds-status">ПО ИСТОЧНИКУ</span></summary><dl class="bounds"><div><dt>X <span>запад → восток</span></dt><dd id="bounds-x">—</dd></div><div><dt>Y <span>юг → север</span></dt><dd id="bounds-y">—</dd></div></dl></details>
+        <div class="sidebar-bottom"><span class="direction-icon" aria-hidden="true">↑</span><span>Y — север<br><span class="muted">X — восток</span></span><span class="flat-label">ИГРОВЫЕ<br>КООРДИНАТЫ</span></div>
       </aside>
 
       <section class="map-area" aria-label="Интерактивная карта">
@@ -58,7 +79,9 @@
           <span class="control-separator" aria-hidden="true"></span>
           <button id="fit-world" type="button" title="Показать всю карту" aria-label="Показать всю карту" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
         </div>
+        <div class="placement-banner" id="placement-banner" hidden><span>Нажмите на карту, чтобы выбрать точку</span><button id="cancel-placement" type="button">Отмена</button></div>
         <div class="map-message" id="map-message" role="status">Подготовка карты…</div>
+        <div class="session-notice" id="session-notice" hidden><p id="session-message" role="status" aria-live="polite"></p><button id="dismiss-notice" type="button" aria-label="Закрыть уведомление">×</button></div>
         <div class="map-caption" id="map-help"><span class="mouse-icon" aria-hidden="true"></span>Перетаскивайте карту <span class="caption-dot">·</span> Колесо для масштаба</div>
         <div class="north-indicator" aria-hidden="true"><span>N</span><svg viewBox="0 0 24 34"><path d="m12 2 9 28-9-6-9 6Z"/></svg></div>
       </section>
@@ -68,6 +91,21 @@
       <div class="coordinate-readout"><span class="telemetry-label">КУРСОР</span><span>X <output id="coordinate-x">—</output></span><span>Y <output id="coordinate-y">—</output></span></div>
       <div class="view-readout"><span><span class="telemetry-label">ЗУМ</span> <output id="zoom-value">—</output></span><span class="telemetry-scale"><output id="scale-value">—</output> ед./px</span><span class="connection-status" id="connection-status">ЗАГРУЗКА</span></div>
     </footer>
+
+    <dialog id="marker-dialog" aria-labelledby="marker-dialog-title" aria-describedby="marker-dialog-help">
+      <form id="marker-form" novalidate>
+        <div class="dialog-header"><span class="eyebrow">ВАШИ ОРИЕНТИРЫ</span><button id="close-dialog" class="icon-button" type="button" aria-label="Закрыть окно">×</button></div>
+        <h2 id="marker-dialog-title">Новая метка</h2>
+        <p id="marker-dialog-help">Введите игровые координаты или выберите точку на карте.</p>
+        <label class="field-label" for="marker-name">Название</label><input id="marker-name" name="name" type="text" required maxlength="80" placeholder="Например, место встречи" autocomplete="off">
+        <div class="coordinate-fields"><div><label class="field-label" for="marker-x">X · восток</label><input id="marker-x" name="x" type="number" required step="any" inputmode="decimal" placeholder="0"></div><div><label class="field-label" for="marker-y">Y · север</label><input id="marker-y" name="y" type="number" required step="any" inputmode="decimal" placeholder="0"></div></div>
+        <button id="pick-on-map" type="button" class="pick-map-button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></svg> Выбрать на карте</button>
+        <fieldset class="icon-choices"><legend class="field-label">Значок</legend><label><input type="radio" name="icon" value="pin" checked><span><b aria-hidden="true">●</b> Точка</span></label><label><input type="radio" name="icon" value="star"><span><b aria-hidden="true">★</b> Звезда</span></label><label><input type="radio" name="icon" value="flag"><span><b aria-hidden="true">⚑</b> Флаг</span></label></fieldset>
+        <p id="marker-form-error" class="form-error" role="alert" hidden></p>
+        <div class="dialog-actions"><button id="cancel-dialog" type="button" class="secondary-button">Отмена</button><button type="submit" class="primary-button">Сохранить метку</button></div>
+        <p class="storage-hint">Метки сохраняются в этом браузере на этом устройстве.</p>
+      </form>
+    </dialog>
     <noscript><div class="noscript-message">Для интерактивной карты включите JavaScript.</div></noscript>
   </body>
 </html>

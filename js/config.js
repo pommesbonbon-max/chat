@@ -10,6 +10,15 @@ const RASTER_SIZE = 8192;
 const PIXELS_PER_GAME_UNIT = 0.4024;
 const ORIGIN_PIXEL_X = 3885.48;
 const ORIGIN_PIXEL_Y = 4967.2;
+const ATTRIBUTION = 'GTA V © <a href="https://www.rockstargames.com/">Rockstar Games</a>'
+  + ' · <a href="https://github.com/Flamm64/GTA-V-World-Map">Zslash / Martin Floden (Flamm64)</a>';
+const BASE_LAYERS = ['atlas', 'satellite', 'roadmap'].map((id) => ({
+  id,
+  label: { atlas: 'Atlas', satellite: 'Satellite', roadmap: 'Roadmap' }[id],
+  minNativeZoom: 0,
+  url: `./assets/tiles/${id}/{z}/{x}/{y}.jpg`,
+  attribution: ATTRIBUTION,
+}));
 
 export const MAP_CONFIG = {
   worldBounds: {
@@ -32,12 +41,7 @@ export const MAP_CONFIG = {
   maxZoom: 6,
   calibration: 'community',
   tileMode: 'xyz',
-  layer: {
-    id: 'atlas',
-    label: 'Atlas',
-    minNativeZoom: 0,
-    url: './assets/tiles/atlas/{z}/{x}/{y}.jpg',
-    attribution: 'GTA V © <a href="https://www.rockstargames.com/">Rockstar Games</a>'
-      + ' · <a href="https://github.com/Flamm64/GTA-V-World-Map">Zslash / Martin Floden (Flamm64)</a>',
-  },
+  defaultLayerId: 'atlas',
+  layers: BASE_LAYERS,
+  layer: BASE_LAYERS[0],
 };

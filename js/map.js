@@ -1,5 +1,6 @@
 import { MAP_CONFIG } from './config.js';
 import { createGameCRS, pixelToWorld, worldToPixel, validateConfig } from './projection.js';
+import { createBaseLayerManager } from './layers.js';
 
 function gridStep(unitsPerPixel) {
   const target = unitsPerPixel * 130;
@@ -60,6 +61,7 @@ function createCoordinateGrid(L, config, bounds, isDiagnostic) {
   return new Grid({
     tileSize: config.tileSize,
     noWrap: true,
+    pane: 'coordinate-grid',
     bounds,
     minZoom: config.minZoom,
     maxZoom: config.maxZoom,
@@ -69,11 +71,12 @@ function createCoordinateGrid(L, config, bounds, isDiagnostic) {
   });
 }
 
-/** Stage 3 core: projection, bounded navigation and one configured XYZ basemap. */
+/** Shared projection, bounded navigation and switchable XYZ base styles. */
 export function createMap(container, {
   onCoordinate = () => {},
   onViewChange = () => {},
   onTileError = () => {},
+  onLayerChange = () => {},
   config = MAP_CONFIG,
 } = {}) {
   validateConfig(config);
@@ -107,25 +110,12 @@ export function createMap(container, {
     worldCopyJump: false,
   });
 
-  let baseLayer;
-  if (!isDiagnostic) {
-    if (!config.layer?.url) throw new Error('XYZ basemap requires layer.url');
-    baseLayer = L.tileLayer(config.layer.url, {
-      tileSize: config.tileSize,
-      minZoom: config.minZoom,
-      maxZoom: config.maxZoom,
-      maxNativeZoom: config.nativeZoom,
-      minNativeZoom: config.layer.minNativeZoom ?? 0,
-      bounds,
-      noWrap: true,
-      tms: false,
-      detectRetina: false,
-      attribution: config.layer.attribution || '',
-      keepBuffer: 2,
-    });
-    baseLayer.on('tileerror', onTileError);
-    baseLayer.addTo(map);
-  }
+  const layers = isDiagnostic ? null : createBaseLayerManager(L, map, config, {
+    onChange: onLayerChange, onTileError,
+  });
+  const gridPane = map.createPane('coordinate-grid');
+  gridPane.style.zIndex = '350';
+  gridPane.style.pointerEvents = 'none';
 
   const grid = createCoordinateGrid(L, config, bounds, isDiagnostic).addTo(map);
   const border = L.rectangle(bounds, {
@@ -160,13 +150,15 @@ export function createMap(container, {
     map.panInsideBounds(bounds, { animate: false });
   });
   observer.observe(map.getContainer());
-  map.on('unload', () => observer.disconnect());
+  map.on('unload', () => { observer.disconnect(); layers?.destroy(); });
 
   return {
     map,
-    baseLayer,
+    get baseLayer() { return layers?.layer; },
     isDiagnostic,
     fitWorld,
+    setBaseLayer(id) { return layers ? layers.select(id) : false; },
+    getBaseLayerId() { return layers?.id || null; },
     setGridVisible(visible) {
       if (visible) {
         if (!map.hasLayer(grid)) grid.addTo(map);

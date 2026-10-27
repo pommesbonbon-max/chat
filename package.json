@@ -1,11 +1,11 @@
 {
   "name": "gta-v-map",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Этап 3: локальная карта GTA V Atlas на Leaflet с общественной калибровкой координат.",
+  "description": "Интерактивная карта GTA V: три стиля, поиск и пользовательские метки.",
   "type": "module",
   "scripts": {
-    "test": "node tests/projection.test.mjs",
+    "test": "node tests/run.mjs",
     "serve": "python3 -m http.server 8080 --bind 127.0.0.1"
   },
   "engines": {
